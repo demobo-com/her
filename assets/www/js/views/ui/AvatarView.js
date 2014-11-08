@@ -42,12 +42,10 @@ define(function(require, exports, module) {
         },
 
         showStats: function() {
-            this.stats.setStyle({zIndex: 2}, {duration: 50});
+            this.stats.setStyle({zIndex: 10}, {duration: 50});
+            this.stats.setPosition(0,0,10, {duration: 50, curve: "easeOut"});
             this.stats.setOpacity(1, {duration: 500, curve: "easeOut"});
             this.stats.setSize([window.innerWidth, window.innerHeight], {duration: 500, curve: "easeOut"});
-            this.alert.hide();
-            this.avatar.setOpacity(0, {duration: 500, curve: "easeOut"});
-
         },
 
         hideStats: function() {
@@ -55,9 +53,7 @@ define(function(require, exports, module) {
             this.stats.setSize([0,0], {duration: 1000, curve: "easeOut"}, function() {
                 this.stats.setStyle({zIndex: -5});
             }.bind(this))
-
         }
-
 
     });
 
@@ -111,7 +107,7 @@ define(function(require, exports, module) {
         this.stats.on('click', function(){
             this.hideStats();
             soundEffect.beep.play();
-        })
+        }.bind(this));
     }
 
     module.exports = AvatarView;
