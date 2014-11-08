@@ -39,6 +39,10 @@ define(function(require, exports, module) {
 
     };
 
+    VoiceView.prototype.load = function(data) {
+        console.log(data);
+    }
+
     function _createViews() {
         var voiceSurface = new Surface({
             size: [undefined, undefined],

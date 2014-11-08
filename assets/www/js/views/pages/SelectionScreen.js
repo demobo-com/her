@@ -33,7 +33,7 @@ define(function(require, exports, module) {
         });
         this.add(SelectionScreen);
 
-        var her1 = new UIElement({
+        this.her1 = new UIElement({
             position: [0,0,0],
             size: this.options.itemSize,
             align: [0.25,0.4],
@@ -44,9 +44,9 @@ define(function(require, exports, module) {
                 background: 'blue'
             }
         });
-        this.add(her1);
+        this.add(this.her1);
 
-        var her2 = new UIElement({
+        this.her2 = new UIElement({
             position: [0,0,0],
             size: this.options.itemSize,
             align: [0.25,.7],
@@ -57,9 +57,9 @@ define(function(require, exports, module) {
                 background: 'blue'
             }
         });
-        this.add(her2);
+        this.add(this.her2);
 
-        var her3 = new UIElement({
+        this.her3 = new UIElement({
             position: [0,0,0],
             size: this.options.itemSize,
             align: [.75,0.4],
@@ -70,9 +70,9 @@ define(function(require, exports, module) {
                 background: 'blue'
             }
         });
-        this.add(her3);
+        this.add(this.her3);
 
-        var her4 = new UIElement({
+        this.her4 = new UIElement({
             position: [0,0,0],
             size: this.options.itemSize,
             align: [.75,.7],
@@ -83,12 +83,23 @@ define(function(require, exports, module) {
                 background: 'blue'
             }
         });
-        this.add(her4);
+        this.add(this.her4);
 
     }
 
     function _setListeners() {
-
+        this.her1.on('click', function(){
+            this._eventOutput.emit('personClick', 1);
+        }.bind(this));
+        this.her2.on('click', function(){
+            this._eventOutput.emit('personClick', 2);
+        }.bind(this));
+        this.her3.on('click', function(){
+            this._eventOutput.emit('personClick', 3);
+        }.bind(this));
+        this.her4.on('click', function(){
+            this._eventOutput.emit('personClick', 4);
+        }.bind(this));
     }
 
     module.exports = SelectionScreen;
