@@ -35,21 +35,12 @@ define(function (require, exports, module) {
         },
 
         processToyota: function(text, successCallback, failCallback) {
-            var baseUrl = "https://api-jp-t-itc.com/GetVehicleInfo";
+            var baseUrl = "http://mojiohack.herokuapp.com/toyota";
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: baseUrl,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                crossDomain: true,
-                jsonpCallback: 'jsonCallback',
-                data: JSON.stringify({
-                    callback: '?',
-                    developerkey: 'bb156e0c6e51',
-                    responseformat: "jsonp",
-                    vid: 'ITCUS_VID_052',
-                    infoids: '[Posn,VehBehvr,RestFu]'
-                }),
                 success: successCallback,
                 error: failCallback
             });
