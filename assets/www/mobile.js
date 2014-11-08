@@ -29,7 +29,7 @@ define(function (require, exports, module) {
 
     setTimeout(function(){
         this.appLightbox.show(this.selectionScreen, { duration : 600, curve: Easing.outBack });
-    }.bind(this),3000);
+    }.bind(this),1000);
 
     var onPersonClick = _.debounce(function(data){
         this.appLightbox.show(this.voiceView, { duration : 600, curve: Easing.outBack });

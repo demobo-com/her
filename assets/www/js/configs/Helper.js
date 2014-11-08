@@ -39,7 +39,7 @@ define(function (require, exports, module) {
             $.ajax({
                 type: "GET",
                 url: baseUrl,
-                contentType: "application/json; charset=utf-8",
+//                contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: successCallback,
                 error: failCallback

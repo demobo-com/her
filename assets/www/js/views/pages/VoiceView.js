@@ -75,13 +75,15 @@ define(function(require, exports, module) {
                 var action = json.result.action;
                 var value = _.values(json.result.parameters).join('');
                 console.warn(json);
-                voiceResponse.call(this, action, value);
 
-//                Helper.processToyota("", function(json){
-//                    console.log(json)
-//                }, function() {
-//
-//                });
+                var items = [1,2,3];
+                voiceResponse.call(this, action, items[Math.floor(Math.random()*items.length)]);
+
+                Helper.processToyota("", function(json){
+//                    this.statView.load(JSON.stringify(json));
+                }, function() {
+
+                });
             }, function(errorMessage) {
                 console.warn(errorMessage);
                 voiceResponse('error', value);
@@ -119,17 +121,23 @@ define(function(require, exports, module) {
         } else if (action == 'get.gps'){
             if (value == 1){
                 this.voiceSurface.changeHappy();
-                this.voiceSurface.alert.update("I like the view here. Let's stay for a while.");
-            } else if (value == 2){
-                this.voiceSurface.changeSad();
-                this.voiceSurface.alert.update("I'm scared, can we go somewhere else?");
+                this.voiceSurface.alert.update("335 S Sunnyvale Ave. I like the view here. Let's stay for a while.");
+            } else if (value = 2){
+                this.voiceSurface.changeAngry();
+                this.voiceSurface.alert.update("Sunnyvale. I don't feel safe here, can we go somewhere else?");
             } else if (value = 3){
                 this.voiceSurface.changeNeutral();
-                this.voiceSurface.alert.update("I'm bored. There's not much to do around here.");
+                this.voiceSurface.alert.update("Sunnyvale. I'm bored. There's not much to do around here.");
             }
         } else if (action == 'error'){
             this.voiceSurface.changeConfused();
-            this.voiceSurface.alert.update("What are you talking about?");
+            if (value == 1){
+                this.voiceSurface.alert.update("What are you talking about?");
+            } else if (value = 2){
+                this.voiceSurface.alert.update("Huh?");
+            }else if (value = 2){
+                this.voiceSurface.alert.update("No clue?");
+            }
         } else if (action == 'get.stat'){
             this.voiceSurface.showStats();
             //give values, flip

@@ -28,7 +28,7 @@ define(function(require, exports, module) {
                 fontSize: '20px',
                 textAlign: 'center',
                 background: '#fa5c4f',
-                lineHeight: '50px'
+                lineHeight: '250px'
             }
         });
         this.add(SelectionScreen);
