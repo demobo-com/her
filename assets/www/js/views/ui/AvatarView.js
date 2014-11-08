@@ -91,6 +91,7 @@ define(function(require, exports, module) {
             align: [0.5,0.5],
             content: "Stats",
             opacity: 0,
+            color: "#fff",
             style: {
                 backgroundColor: 'coral',
                 zIndex: -5,
@@ -103,10 +104,12 @@ define(function(require, exports, module) {
     }
 
     function _setListeners() {
-//        this.avatar.on('click', function(){
-//            this.changeHappy();
-//            this.alert.update("message");
-//        }.bind(this));
+        this.alert.on('click', function(){
+            this.showStats();
+        }.bind(this));
+        this.stats.on('click', function(){
+            this.hideStats();
+        })
     }
 
     module.exports = AvatarView;

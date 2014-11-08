@@ -80,7 +80,7 @@ define(function(require, exports, module) {
                 voiceResponse.call(this, action, items[Math.floor(Math.random()*items.length)]);
 
                 Helper.processToyota("", function(json){
-//                    this.statView.load(JSON.stringify(json));
+                    this.voiceSurface.load(JSON.stringify(json));
                 }, function() {
 
                 });
