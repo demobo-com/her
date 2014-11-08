@@ -99,13 +99,13 @@ define(function(require, exports, module) {
         if (action == 'get.status'){
             if (value == 1){
                 this.voiceSurface.changeNeutral();
-                this.voiceSurface.alert.update("");
+                this.voiceSurface.alert.update("Same old, same old. Just glad you're here.");
             } else if (value == 2){
-                this.voiceSurface.changeAngry();
-                this.voiceSurface.alert.update("");
+                this.voiceSurface.changeSad();
+                this.voiceSurface.alert.update("It's been a rough day. You're breaking way to much!");
             } else if (value == 3){
                 this.voiceSurface.changeHappy();
-                this.voiceSurface.alert.update("");
+                this.voiceSurface.alert.update("It's great! I'm so glad to spend time with you today!");
             }
         } else if (action == 'get.fuel'){
             if (value == 1){
