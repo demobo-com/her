@@ -15,18 +15,16 @@ define(function(require, exports, module) {
             this.exist      =   options.exist           ||  true;
 
             this._callSuper(UIElement, 'constructor', {
-                classes: ["alert"],
+                classes: ["bubble"],
                 position: [0, 0, 1],
                 size: this.size,
                 style: {
-                    backgroundColor: 'rgba(0,0,0,0.5)',
 //                    fontFamily: 'avenir next',
                     fontWeight: 200,
                     fontSize: window.innerHeight/24 + 'px',
-                    borderRadius: window.innerHeight/108 + 'px',
-                    textAlign: "center",
-//                    margin: this.xPos,
-                    color: "white"
+                    borderRadius: window.innerHeight/96 + 'px',
+//                    textAlign: "center",
+                    color: "black"
                 }
             });
 
@@ -55,12 +53,12 @@ define(function(require, exports, module) {
             }
         },
 
-        update: function(logo, value) {
+        update: function(message) {
             if (this.exist) {
 //                var html = logo + '<div>' + value + '</div>'
 //                html = Mustache.render(html, {color: 'lightgrey'});
 //                this.setContent(html);
-                this.setContent(logo+value);
+                this.setContent(message);
                 this.show();
             }
         }

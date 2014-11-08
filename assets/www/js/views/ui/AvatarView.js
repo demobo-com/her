@@ -16,23 +16,23 @@ define(function(require, exports, module) {
         },
 
         changeHappy: function() {
-            this.avatar.setContent('<img src="assets/imgs/herHappy.png">');
+            this.avatar.setContent('<img src="assets/imgs/herHappy.png">' + '<div>Charlene</div>');
         },
 
         changeSad: function() {
-            this.avatar.setContent('<img src="assets/imgs/herSad.png">');
+            this.avatar.setContent('<img src="assets/imgs/herSad.png">' + '<div>Charlene</div>');
         },
 
         changeAngry: function() {
-            this.avatar.setContent('<img src="assets/imgs/herAngry.png">');
+            this.avatar.setContent('<img src="assets/imgs/herAngry.png">' + '<div>Charlene</div>');
         },
 
         changeConfused: function() {
-            this.avatar.setContent('<img src="assets/imgs/herConfused.png">');
+            this.avatar.setContent('<img src="assets/imgs/herConfused.png">' + '<div>Charlene</div>');
         },
 
         changeNeutral: function() {
-            this.avatar.setContent('<img src="assets/imgs/her.png">');
+            this.avatar.setContent('<img src="assets/imgs/her.png">' + '<div>Charlene</div>');
         }
 
 
@@ -40,12 +40,11 @@ define(function(require, exports, module) {
     });
 
     function _createAvatar() {
-
         this.avatar = new UIElement({
             classes: ['avatar'],
             content: '<img src="assets/imgs/her.png">' + '<div>Charlene</div>',
             style: {
-                backgroundColor: 'red',
+                backgroundColor: '#fa5c4f',
                 textAlign: 'center'
             }
         });
@@ -56,9 +55,9 @@ define(function(require, exports, module) {
         this.alert = new AlertView({
             size: [window.innerWidth/4*3, window.innerHeight/4],
             xPos: window.innerWidth/20,
-            yPos: window.innerWidth*0.6,
+            yPos: window.innerWidth*0.1,
             xHide: -window.innerWidth,
-            yHide: window.innerWidth*0.6
+            yHide: window.innerWidth*0.1
         });
         this.alert.init();
         this.alert.hide();
@@ -68,7 +67,7 @@ define(function(require, exports, module) {
     function _setListeners() {
         this.avatar.on('click', function(){
             this.changeHappy();
-            this.alert.update('hi','there');
+            this.alert.update("message");
         }.bind(this));
     }
 
