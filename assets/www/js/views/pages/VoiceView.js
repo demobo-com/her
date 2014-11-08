@@ -23,6 +23,7 @@ define(function(require, exports, module) {
     var Helper = require('configs/Helper');
     var soundEffect = require('configs/SoundEffect');
     var Scrollview = require('lib/demobo/Scrollview');
+    var AvatarView = require('views/ui/AvatarView');
 
     function VoiceView() {
         View.apply(this, arguments);
@@ -44,7 +45,7 @@ define(function(require, exports, module) {
     }
 
     function _createViews() {
-        var voiceSurface = new Surface({
+        var voiceSurface = new AvatarView({
             size: [undefined, undefined],
             content: 'VOICE',
             properties: {
@@ -52,12 +53,13 @@ define(function(require, exports, module) {
                 background: 'red'
             }
         });
+
         this.scrollview = new Scrollview({
             direction: Utility.Direction.Y
         });
         this.scrollview.sequenceFrom([voiceSurface]);
         this.add(this.scrollview);
-        voiceSurface.pipe(this.scrollview);
+//        voiceSurface.pipe(this.scrollview);
     }
 
     function _setListeners() {

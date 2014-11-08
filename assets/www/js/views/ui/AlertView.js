@@ -50,16 +50,17 @@ define(function(require, exports, module) {
                 this.halt();
                 this.setOpacity(1, {duration: 300, curve: "easeOut"});
                 this.setPosition(this.xPos,this.yPos,this.zPos, {duration : 500, curve : 'easeOut'});
-                if (this.showTimeout) clearTimeout(this.showTimeout);
-                this.showTimeout = setTimeout(function(){this.hide()}.bind(this),1500);
+//                if (this.showTimeout) clearTimeout(this.showTimeout);
+//                this.showTimeout = setTimeout(function(){this.hide()}.bind(this),1500);
             }
         },
 
         update: function(logo, value) {
             if (this.exist) {
-                var html = logo + '<div>' + value + '</div>'
-                html = Mustache.render(html, {color: 'lightgrey'});
-                this.setContent(html);
+//                var html = logo + '<div>' + value + '</div>'
+//                html = Mustache.render(html, {color: 'lightgrey'});
+//                this.setContent(html);
+                this.setContent(logo+value);
                 this.show();
             }
         }
