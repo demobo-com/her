@@ -55,9 +55,9 @@ define(function(require, exports, module) {
         this.alert = new AlertView({
             size: [window.innerWidth/4*3, window.innerHeight/4],
             xPos: window.innerWidth/20,
-            yPos: window.innerWidth*0.1,
+            yPos: window.innerWidth*0.12,
             xHide: -window.innerWidth,
-            yHide: window.innerWidth*0.1
+            yHide: window.innerWidth*0.12
         });
         this.alert.init();
         this.alert.hide();
