@@ -42,7 +42,8 @@ define(function(require, exports, module) {
     function _createAvatar() {
 
         this.avatar = new UIElement({
-            content: '<img src="assets/imgs/her.png">',
+            classes: ['avatar'],
+            content: '<img src="assets/imgs/her.png">' + '<div>Charlene</div>',
             style: {
                 backgroundColor: 'red',
                 textAlign: 'center'
@@ -55,9 +56,9 @@ define(function(require, exports, module) {
         this.alert = new AlertView({
             size: [window.innerWidth/4*3, window.innerHeight/4],
             xPos: window.innerWidth/20,
-            yPos: window.innerWidth/4,
+            yPos: window.innerWidth*0.6,
             xHide: -window.innerWidth,
-            yHide: window.innerWidth/4
+            yHide: window.innerWidth*0.6
         });
         this.alert.init();
         this.alert.hide();

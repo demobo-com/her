@@ -17,6 +17,9 @@ body.mobile {
   -ms-user-select: none;
   user-select: none;
 }
+.avatar img {
+  margin-top: 65%;
+}
 .bubble {
   position: relative;
   width: 250px;
