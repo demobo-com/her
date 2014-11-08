@@ -40,6 +40,7 @@ define(function(require, exports, module) {
     });
 
     function _createAvatar() {
+
         this.avatar = new UIElement({
             content: '<img src="assets/imgs/her.png">',
             style: {

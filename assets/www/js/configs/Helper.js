@@ -35,16 +35,21 @@ define(function (require, exports, module) {
         },
 
         processToyota: function(text, successCallback, failCallback) {
-            var accessToken = "e18d92c0af64436990f7ec387a200e85";
-            var subscriptionKey = "c0b63dd4-bc77-448d-95ad-d9ed87729ad4";
-            var baseUrl = "https://api-jp-t-itc.com/GetVehicleInfo?developerkey=bb156e0c6e51&responseformat=json&vid=ITCUS_VID_052&infoids=[Posn,VehBehvr,RestFu]";
+            var baseUrl = "https://api-jp-t-itc.com/GetVehicleInfo";
             $.ajax({
                 type: "POST",
                 url: baseUrl,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                data: JSON.stringify({ q: text, lang: "en" }),
-
+                crossDomain: true,
+                jsonpCallback: 'jsonCallback',
+                data: JSON.stringify({
+                    callback: '?',
+                    developerkey: 'bb156e0c6e51',
+                    responseformat: "jsonp",
+                    vid: 'ITCUS_VID_052',
+                    infoids: '[Posn,VehBehvr,RestFu]'
+                }),
                 success: successCallback,
                 error: failCallback
             });

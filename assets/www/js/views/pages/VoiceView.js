@@ -53,13 +53,14 @@ define(function(require, exports, module) {
                 background: 'red'
             }
         });
+//        window.v = this.voiceSurface
 
         this.scrollview = new Scrollview({
             direction: Utility.Direction.Y
         });
         this.scrollview.sequenceFrom([this.voiceSurface]);
         this.add(this.scrollview);
-//        voiceSurface.pipe(this.scrollview);
+        Engine.pipe(this.scrollview);
     }
 
     function _setListeners() {
@@ -74,6 +75,11 @@ define(function(require, exports, module) {
                 var value = _.values(json.result.parameters).join('');
                 console.warn(json);
                 alert(action + " " + value);
+                Helper.processToyota("", function(json){
+                    console.log(json)
+                }, function() {
+
+                });
             }, function(errorMessage) {
                 console.warn(errorMessage);
                 alert('error');
@@ -81,6 +87,7 @@ define(function(require, exports, module) {
         }.bind(this));
     }
 
+    window.help = Helper;
     module.exports = VoiceView;
 });
 
