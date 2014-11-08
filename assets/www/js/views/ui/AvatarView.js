@@ -12,9 +12,28 @@ define(function(require, exports, module) {
 
             _createAvatar.call(this);
             _createAlert.call(this);
+            _setListeners.call(this);
+        },
+
+        changeHappy: function() {
+            this.avatar.setContent('<img src="assets/imgs/herHappy.png">');
+        },
+
+        changeSad: function() {
+            this.avatar.setContent('<img src="assets/imgs/herSad.png">');
+        },
+
+        changeAngry: function() {
+            this.avatar.setContent('<img src="assets/imgs/herAngry.png">');
+        },
+
+        changeConfused: function() {
+            this.avatar.setContent('<img src="assets/imgs/herConfused.png">');
+        },
+
+        changeNeutral: function() {
+            this.avatar.setContent('<img src="assets/imgs/her.png">');
         }
-
-
 
 
 
@@ -22,7 +41,7 @@ define(function(require, exports, module) {
 
     function _createAvatar() {
         this.avatar = new UIElement({
-            content: "hi!",
+            content: '<img src="assets/imgs/her.png">',
             style: {
                 backgroundColor: 'red',
                 textAlign: 'center'
@@ -33,10 +52,22 @@ define(function(require, exports, module) {
 
     function _createAlert() {
         this.alert = new AlertView({
-            size: [window.innerWidth/4*3, window.innerHeight/4]
+            size: [window.innerWidth/4*3, window.innerHeight/4],
+            xPos: window.innerWidth/20,
+            yPos: window.innerWidth/4,
+            xHide: -window.innerWidth,
+            yHide: window.innerWidth/4
         });
-        this.alert.update('hi','there');
+        this.alert.init();
+        this.alert.hide();
         this._addChild(this.alert);
+    }
+
+    function _setListeners() {
+        this.avatar.on('click', function(){
+            this.changeHappy();
+            this.alert.update('hi','there');
+        }.bind(this));
     }
 
     module.exports = AvatarView;

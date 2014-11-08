@@ -45,7 +45,7 @@ define(function(require, exports, module) {
     }
 
     function _createViews() {
-        var voiceSurface = new AvatarView({
+        this.voiceSurface = new AvatarView({
             size: [undefined, undefined],
             content: 'VOICE',
             properties: {
@@ -57,7 +57,7 @@ define(function(require, exports, module) {
         this.scrollview = new Scrollview({
             direction: Utility.Direction.Y
         });
-        this.scrollview.sequenceFrom([voiceSurface]);
+        this.scrollview.sequenceFrom([this.voiceSurface]);
         this.add(this.scrollview);
 //        voiceSurface.pipe(this.scrollview);
     }
