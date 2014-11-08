@@ -18,23 +18,23 @@ define(function(require, exports, module) {
         },
 
         changeHappy: function() {
-            this.avatar.setContent('<img src="assets/imgs/herHappy.png">' + '<div>Charlene</div>');
+            this.avatar.setContent('<img src="assets/imgs/herHappy.png">' + '<div>Samantha</div>');
         },
 
         changeSad: function() {
-            this.avatar.setContent('<img src="assets/imgs/herSad.png">' + '<div>Charlene</div>');
+            this.avatar.setContent('<img src="assets/imgs/herSad.png">' + '<div>Samantha</div>');
         },
 
         changeAngry: function() {
-            this.avatar.setContent('<img src="assets/imgs/herAngry.png">' + '<div>Charlene</div>');
+            this.avatar.setContent('<img src="assets/imgs/herAngry.png">' + '<div>Samantha</div>');
         },
 
         changeConfused: function() {
-            this.avatar.setContent('<img src="assets/imgs/herConfused.png">' + '<div>Charlene</div>');
+            this.avatar.setContent('<img src="assets/imgs/herConfused.png">' + '<div>Samantha</div>');
         },
 
         changeNeutral: function() {
-            this.avatar.setContent('<img src="assets/imgs/her.png">' + '<div>Charlene</div>');
+            this.avatar.setContent('<img src="assets/imgs/her.png">' + '<div>Samantha</div>');
         },
 
         load: function(data) {
@@ -60,7 +60,7 @@ define(function(require, exports, module) {
     function _createAvatar() {
         this.avatar = new UIElement({
             classes: ['avatar'],
-            content: '<img src="assets/imgs/her.png">' + '<div>Charlene</div>',
+            content: '<img src="assets/imgs/her.png">' + '<div>Samantha</div>',
             style: {
                 backgroundColor: '#fa5c4f',
                 textAlign: 'center'
