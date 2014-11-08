@@ -83,14 +83,14 @@ define(function(require, exports, module) {
 //                });
             }, function(errorMessage) {
                 console.warn(errorMessage);
-                alert('error');
+                voiceResponse('error', value);
             });
         }.bind(this));
     }
 
     function voiceResponse(action, value) {
         // action:
-        // get.status, get.fuel, get.gps, get.stat
+        // get.status, get.fuel, get.gps, get.stat, error
 
 
     }
