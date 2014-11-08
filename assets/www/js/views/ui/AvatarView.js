@@ -41,16 +41,17 @@ define(function(require, exports, module) {
         },
 
         showStats: function() {
-            this.stats.setStyle({zIndex: 2}, {duration: 50}, function() {
-                this.stats.setOpacity(1, {duration: 50, curve: "easeOut"});
-                this.stats.setSize([window.innerWidth, window.innerHeight], {duration: 300, curve: "easeOut"});
-            }.bind(this))
+            this.stats.setStyle({zIndex: 2}, {duration: 50});
+            this.stats.setOpacity(1, {duration: 500, curve: "easeOut"});
+            this.stats.setSize([window.innerWidth, window.innerHeight], {duration: 500, curve: "easeOut"});
+            this.alert.hide();
+            this.avatar.setOpacity(0, {duration: 500, curve: "easeOut"});
 
         },
 
         hideStats: function() {
-            this.stats.setOpacity(0, {duration: 500, curve: "easeOut"});
-            this.stats.setSize([0,0], {duration: 500, curve: "easeOut"}, function() {
+            this.stats.setOpacity(0, {duration: 1000, curve: "easeOut"});
+            this.stats.setSize([0,0], {duration: 1000, curve: "easeOut"}, function() {
                 this.stats.setStyle({zIndex: -5});
             }.bind(this))
 
@@ -86,11 +87,15 @@ define(function(require, exports, module) {
 
     function _createStats() {
         this.stats = new UIElement({
-            content: "",
+            origin: [0.5,0.5],
+            align: [0.5,0.5],
+            content: "Stats",
             opacity: 0,
             style: {
                 backgroundColor: 'coral',
-                zIndex: -5
+                zIndex: -5,
+                paddingTop: '20px',
+                paddingLeft: '20px'
             }
         });
         this.hideStats();

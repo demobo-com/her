@@ -131,6 +131,7 @@ define(function(require, exports, module) {
             this.voiceSurface.changeConfused();
             this.voiceSurface.alert.update("What are you talking about?");
         } else if (action == 'get.stat'){
+            this.voiceSurface.showStats();
             //give values, flip
         }
     }
