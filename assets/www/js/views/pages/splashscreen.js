@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     var View = require('famous/core/View');
     var Surface = require('famous/core/Surface');
+    var ImageSurface = require('famous/surfaces/ImageSurface');
     var Transform = require('famous/core/Transform');
     var Modifier = require('famous/core/Modifier');
     var StateModifier = require('famous/modifiers/StateModifier');
@@ -29,6 +30,17 @@ define(function(require, exports, module) {
             }
         });
         this.add(splashScreen);
+
+        var logo = new ImageSurface({
+            content: "assets/imgs/toyota.png",
+            origin: [.5, .5],
+            size: [150,130],
+            properties:{
+                zIndex: 1
+            }
+        });
+        this.add(logo);
+
     }
 
     function _setListeners() {
