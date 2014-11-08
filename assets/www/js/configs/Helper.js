@@ -37,16 +37,12 @@ define(function (require, exports, module) {
         processToyota: function(text, successCallback, failCallback) {
             var accessToken = "e18d92c0af64436990f7ec387a200e85";
             var subscriptionKey = "c0b63dd4-bc77-448d-95ad-d9ed87729ad4";
-            var baseUrl = "https://api.api.ai/v1/";
+            var baseUrl = "https://api-jp-t-itc.com/GetVehicleInfo?developerkey=bb156e0c6e51&responseformat=json&vid=ITCUS_VID_052&infoids=[Posn,VehBehvr,RestFu]";
             $.ajax({
                 type: "POST",
-                url: baseUrl + "query/",
+                url: baseUrl,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                headers: {
-                    "Authorization": "Bearer " + accessToken,
-                    "ocp-apim-subscription-key": subscriptionKey
-                },
                 data: JSON.stringify({ q: text, lang: "en" }),
 
                 success: successCallback,
