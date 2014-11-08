@@ -95,35 +95,35 @@ define(function(require, exports, module) {
         // action:
         // get.status, get.fuel, get.gps, get.stat
         if (action == 'get.status'){
-            if (value == 'normal'){
+            if (value == 1){
                 this.voiceSurface.changeNeutral();
                 this.voiceSurface.alert.update("");
-            } else if (value == 'bad'){
+            } else if (value == 2){
                 this.voiceSurface.changeAngry();
                 this.voiceSurface.alert.update("");
-            } else if (value == 'good'){
+            } else if (value == 3){
                 this.voiceSurface.changeHappy();
                 this.voiceSurface.alert.update("");
             }
         } else if (action == 'get.fuel'){
-            if (value == 'low'){
+            if (value == 1){
                 this.voiceSurface.changeAngry();
                 this.voiceSurface.alert.update("I'm starving! I need food. NOW!");
-            } else if (value == 'medium'){
+            } else if (value == 2){
                 this.voiceSurface.changeNeutral();
                 this.voiceSurface.alert.update("I'm ok for now. You're so sweet for asking.");
-            } else if (value == "full"){
+            } else if (value == 3){
                 this.voiceSurface.changeHappy();
                 this.voiceSurface.alert.update("I couldn't eat another bite! Thanks for feeding me.");
             }
         } else if (action == 'get.gps'){
-            if (value == 'safe'){
+            if (value == 1){
                 this.voiceSurface.changeHappy();
                 this.voiceSurface.alert.update("I like the view here. Let's stay for a while.");
-            } else if (value == 'unsafe'){
+            } else if (value == 2){
                 this.voiceSurface.changeSad();
                 this.voiceSurface.alert.update("I'm scared, can we go somewhere else?");
-            } else if (value = 'nothing special'){
+            } else if (value = 3){
                 this.voiceSurface.changeNeutral();
                 this.voiceSurface.alert.update("I'm bored. There's not much to do around here.");
             }

@@ -11,6 +11,7 @@ define(function(require, exports, module) {
             this.size       =   options.size            || [window.innerWidth, window.innerHeight];
 
             _createAvatar.call(this);
+            _createStats.call(this);
             _createAlert.call(this);
             _setListeners.call(this);
         },
@@ -33,8 +34,27 @@ define(function(require, exports, module) {
 
         changeNeutral: function() {
             this.avatar.setContent('<img src="assets/imgs/her.png">' + '<div>Charlene</div>');
-        }
+        },
 
+        load: function(data) {
+            this.stats.setContent(data);
+        },
+
+        showStats: function() {
+            this.stats.setStyle({zIndex: 2}, {duration: 50}, function() {
+                this.stats.setOpacity(1, {duration: 50, curve: "easeOut"});
+                this.stats.setSize([window.innerWidth, window.innerHeight], {duration: 300, curve: "easeOut"});
+            }.bind(this))
+
+        },
+
+        hideStats: function() {
+            this.stats.setOpacity(0, {duration: 500, curve: "easeOut"});
+            this.stats.setSize([0,0], {duration: 500, curve: "easeOut"}, function() {
+                this.stats.setStyle({zIndex: -5});
+            }.bind(this))
+
+        }
 
 
     });
@@ -62,6 +82,19 @@ define(function(require, exports, module) {
         this.alert.init();
         this.alert.hide();
         this._addChild(this.alert);
+    }
+
+    function _createStats() {
+        this.stats = new UIElement({
+            content: "",
+            opacity: 0,
+            style: {
+                backgroundColor: 'coral',
+                zIndex: -5
+            }
+        });
+        this.hideStats();
+        this._addChild(this.stats);
     }
 
     function _setListeners() {
