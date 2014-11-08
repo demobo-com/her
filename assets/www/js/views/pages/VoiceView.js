@@ -47,7 +47,7 @@ define(function(require, exports, module) {
                 textAlign: 'center',
                 background: 'red'
             }
-        })
+        });
         this.scrollview = new Scrollview({
             direction: Utility.Direction.Y
         });
