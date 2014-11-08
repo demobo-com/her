@@ -30,6 +30,7 @@ define(function(require, exports, module) {
         _createViews.call(this);
         _setEvents.call(this);
         _setListeners.call(this);
+        window.voice = this;
     }
 
 
@@ -74,7 +75,7 @@ define(function(require, exports, module) {
                 var action = json.result.action;
                 var value = _.values(json.result.parameters).join('');
                 console.warn(json);
-                voiceResponse(action, value);
+                voiceResponse.call(this, action, value);
 
 //                Helper.processToyota("", function(json){
 //                    console.log(json)
@@ -88,11 +89,50 @@ define(function(require, exports, module) {
         }.bind(this));
     }
 
+    window.voiceResponse = voiceResponse;
+
     function voiceResponse(action, value) {
         // action:
-        // get.status, get.fuel, get.gps, get.stat, error
-
-
+        // get.status, get.fuel, get.gps, get.stat
+        if (action == 'get.status'){
+            if (value == 'normal'){
+                this.voiceSurface.changeNeutral();
+                this.voiceSurface.alert.update("");
+            } else if (value == 'bad'){
+                this.voiceSurface.changeAngry();
+                this.voiceSurface.alert.update("");
+            } else if (value == 'good'){
+                this.voiceSurface.changeHappy();
+                this.voiceSurface.alert.update("");
+            }
+        } else if (action == 'get.fuel'){
+            if (value == 'low'){
+                this.voiceSurface.changeAngry();
+                this.voiceSurface.alert.update("I'm starving! I need food. NOW!");
+            } else if (value == 'medium'){
+                this.voiceSurface.changeNeutral();
+                this.voiceSurface.alert.update("I'm ok for now. You're so sweet for asking.");
+            } else if (value == "full"){
+                this.voiceSurface.changeHappy();
+                this.voiceSurface.alert.update("I couldn't eat another bite! Thanks for feeding me.");
+            }
+        } else if (action == 'get.gps'){
+            if (value == 'safe'){
+                this.voiceSurface.changeHappy();
+                this.voiceSurface.alert.update("I like the view here. Let's stay for a while.");
+            } else if (value == 'unsafe'){
+                this.voiceSurface.changeSad();
+                this.voiceSurface.alert.update("I'm scared, can we go somewhere else?");
+            } else if (value = 'nothing special'){
+                this.voiceSurface.changeNeutral();
+                this.voiceSurface.alert.update("I'm bored. There's not much to do around here.");
+            }
+        } else if (action == 'error'){
+            this.voiceSurface.changeConfused();
+            this.voiceSurface.alert.update("What are you talking about?");
+        } else if (action == 'get.stat'){
+            //give values, flip
+        }
     }
 
     window.help = Helper;

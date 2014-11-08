@@ -65,10 +65,10 @@ define(function(require, exports, module) {
     }
 
     function _setListeners() {
-        this.avatar.on('click', function(){
-            this.changeHappy();
-            this.alert.update("message");
-        }.bind(this));
+//        this.avatar.on('click', function(){
+//            this.changeHappy();
+//            this.alert.update("message");
+//        }.bind(this));
     }
 
     module.exports = AvatarView;
