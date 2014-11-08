@@ -74,17 +74,25 @@ define(function(require, exports, module) {
                 var action = json.result.action;
                 var value = _.values(json.result.parameters).join('');
                 console.warn(json);
-                alert(action + " " + value);
-                Helper.processToyota("", function(json){
-                    console.log(json)
-                }, function() {
+                voiceResponse(action, value);
 
-                });
+//                Helper.processToyota("", function(json){
+//                    console.log(json)
+//                }, function() {
+//
+//                });
             }, function(errorMessage) {
                 console.warn(errorMessage);
                 alert('error');
             });
         }.bind(this));
+    }
+
+    function voiceResponse(action, value) {
+        // action:
+        // get.status, get.fuel, get.gps, get.stat
+
+
     }
 
     window.help = Helper;
