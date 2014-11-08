@@ -7,7 +7,7 @@ define(function (require, exports, module) {
 
     var SelectionScreen = require('views/pages/SelectionScreen');
     var VoiceView = require('views/pages/VoiceView');
-    var SplashScreen = require('views/pages/SplashScreen');
+    var SplashScreen = require('views/pages/splashscreen');
 
     var mainContext = Engine.createContext();
     mainContext.setPerspective(600);

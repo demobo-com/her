@@ -19,12 +19,13 @@ define(function(require, exports, module) {
     function _createViews() {
         var splashScreen = new Surface({
             size: [undefined, undefined],
-            content: 'Her',
+            content: 'HER',
             properties: {
                 color: '#fff',
-                fontSize: '40px',
+                fontSize: '100px',
                 textAlign: 'center',
-                background: '#fa5c4f'
+                background: '#fa5c4f',
+                lineHeight: '400px'
             }
         });
         this.add(splashScreen);
