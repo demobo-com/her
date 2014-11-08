@@ -102,7 +102,7 @@ define(function(require, exports, module) {
                 this.voiceSurface.alert.update("Same old, same old. Just glad you're here.");
             } else if (value == 2){
                 this.voiceSurface.changeSad();
-                this.voiceSurface.alert.update("It's been a rough day. You're breaking way to much!");
+                this.voiceSurface.alert.update("It's been a rough day. You're braking way too much!");
             } else if (value == 3){
                 this.voiceSurface.changeHappy();
                 this.voiceSurface.alert.update("It's great! I'm so glad to spend time with you today!");
