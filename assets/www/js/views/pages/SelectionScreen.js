@@ -35,6 +35,7 @@ define(function(require, exports, module) {
 
         this.her1 = new UIElement({
             position: [0,0,0],
+            content: '<img id="chooseAvatar" src="assets/imgs/her.png">',
             size: this.options.itemSize,
             align: [0.25,0.4],
             origin: [.5,.5],
@@ -48,6 +49,7 @@ define(function(require, exports, module) {
 
         this.her2 = new UIElement({
             position: [0,0,0],
+            content: '<img id="chooseAvatar" src="assets/imgs/him.png">',
             size: this.options.itemSize,
             align: [0.25,.7],
             origin: [.5,.5],
@@ -61,6 +63,7 @@ define(function(require, exports, module) {
 
         this.her3 = new UIElement({
             position: [0,0,0],
+            content: '<img id="chooseAvatar" src="assets/imgs/him2.png">',
             size: this.options.itemSize,
             align: [.75,0.4],
             origin: [.5,.5],
@@ -74,6 +77,7 @@ define(function(require, exports, module) {
 
         this.her4 = new UIElement({
             position: [0,0,0],
+            content: '<img id="chooseAvatar" src="assets/imgs/her2.png">',
             size: this.options.itemSize,
             align: [.75,.7],
             origin: [.5,.5],
